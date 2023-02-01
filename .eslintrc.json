@@ -26,5 +26,9 @@
         "react",
         "@typescript-eslint"
     ],
-    "rules": {}
+    "rules": {
+        "import/prefer-default-export": "off",
+        "no-restricted-exports": "off",
+        "react/jsx-props-no-spreading": "off"
+    }
 }
