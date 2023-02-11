@@ -1,1 +1,1 @@
-export { default } from './InputGroups';
+export { default, type Props } from './InputGroups';
