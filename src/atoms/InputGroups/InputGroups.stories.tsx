@@ -17,11 +17,11 @@ Default.args = {
   label: 'label',
   placeholder: 'placeholder',
   type: 'text',
+  error: false,
 };
 
 Default.argTypes = {
   type: {
-    name: 'Type',
     options: ['text', 'number', 'email', 'password', 'search', 'tel', 'url'],
     control: { type: 'select' },
   },
@@ -29,5 +29,8 @@ Default.argTypes = {
     table: {
       disable: true,
     },
+  },
+  error: {
+    control: { type: 'text' },
   },
 };
