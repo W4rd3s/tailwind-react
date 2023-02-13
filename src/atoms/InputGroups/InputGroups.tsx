@@ -7,6 +7,7 @@ export type Props = {
   placeholder?: string;
   type?: React.HTMLInputTypeAttribute;
   error?: boolean | string;
+  helperText?: string;
 };
 
 export default function InputGroups({
@@ -15,6 +16,7 @@ export default function InputGroups({
   placeholder,
   type,
   error,
+  helperText,
 }: Props) {
   return (
     <div className={className}>
@@ -38,6 +40,7 @@ export default function InputGroups({
           }`}
           placeholder={placeholder}
           aria-invalid={error ? 'true' : 'false'}
+          aria-describedby={`${labelStr}-description`}
         />
         {error && (
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
@@ -46,10 +49,18 @@ export default function InputGroups({
         )}
       </div>
       {error && typeof error === 'string' ? (
-        <p className="mt-2 text-sm text-red-600" id="email-error">
+        <p className="mt-2 text-sm text-red-600" id={`${labelStr}-description`}>
           {error}
         </p>
       ) : null}
+      {helperText && !(error && typeof error === 'string') && (
+        <p
+          className={`mt-2 text-sm ${error ? 'text-red-600' : 'text-gray-500'}`}
+          id={`${labelStr}-description`}
+        >
+          {helperText}
+        </p>
+      )}
     </div>
   );
 }
@@ -60,4 +71,5 @@ InputGroups.defaultProps = {
   placeholder: undefined,
   type: 'text',
   error: false,
+  helperText: undefined,
 };

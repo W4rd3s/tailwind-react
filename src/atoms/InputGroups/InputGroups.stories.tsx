@@ -18,6 +18,7 @@ Default.args = {
   placeholder: 'placeholder',
   type: 'text',
   error: false,
+  helperText: 'Helper text',
 };
 
 Default.argTypes = {
